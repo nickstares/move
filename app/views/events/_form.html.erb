@@ -1,0 +1,11 @@
+<div class="event-form">
+	<%= form_for :event, url: {action: "create"} do |f| %>
+	  event name: <%= f.text_field :name %><br/>
+	  event photo: <%= f.text_field :event_photo %><br/>
+	  description: <%= f.text_area :description %><br/>
+	  event time: <%= f.date_select :event_time %><br/>
+	  age limit: <%= f.number_field :age_limit %><br/>
+	  link: <%= f.text_area :link %><br/>
+	  <%= f.submit %>
+	<% end %>
+</div>

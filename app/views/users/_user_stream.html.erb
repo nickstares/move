@@ -1,0 +1,22 @@
+<div id="profile-stream">
+
+	<% @events.each do |x| %>
+		<div class="event"> 
+		  <div>
+		  	<%= link_to user_path(x.user) do %> 
+		      <img src="<%= x.user.profile_photo %>" />
+		    <% end %>
+		  </div>
+		  <div>
+		    <h4><%= x.name %></h4>
+		    <h2><%= x.event_time %></h2>
+		  </div>
+		  <div>
+		  	<%= link_to event_path(x.id) do %> 
+		      <img src="<%= x.event_photo %>" />
+		    <% end %>
+		  </div>
+		</div>
+	<% end %>
+
+</div>

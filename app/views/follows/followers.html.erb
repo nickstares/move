@@ -1,0 +1,15 @@
+<% @followers.each do |x| %>
+
+  <div>
+    <div>
+      <%= link_to user_path(x) do %>
+      <img src="<%= x.profile_photo %>"/>
+      <% end %>
+    </div>
+    <div>
+      <p><%= x.username %></p>
+      <p><%= x.bio %></p>
+    </div>
+  </div>
+
+<% end %>

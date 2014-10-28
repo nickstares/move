@@ -1,0 +1,101 @@
+h4{
+	color: black;
+}
+
+footer{
+	background-color: grey;
+	p{
+		line-height: 70px;
+	}
+}
+
+#profile{
+ 	img {
+	width: 250px;
+	height: 250px;
+	}
+	h5{
+	color: black;
+	}
+}
+
+.nav-bar {
+	margin-bottom: 2px;
+}
+
+.content{
+	height: 100%;
+}
+
+#profile {
+	width: 250px;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	border: 1px solid grey;
+}
+
+#stream {
+	width: 660px;
+	height: 100%;
+	display: inline-block;
+	border: 2px solid black;
+}
+
+#profile-pic{
+		width: 160px;
+		height:160px;
+		border: 2px solid white;
+		float: left;
+		display: inline-block;
+	}
+
+.post{
+	width: 660px;
+}
+
+.event {
+	display: inline-block;
+	width: 500px;
+	height: 160px;
+	border-bottom: 2px solid white;
+	img{
+		width: 50px;
+		height: 60px;
+		display: inline-block;
+		float: right;
+	}
+	background-color: grey;
+	h2, h4 {
+		color: white;
+		background-color: black;
+		text-align: right;
+	}
+
+}
+
+.event-partial {
+	h1, h3{
+		color: black;
+	}
+	margin-left: 30%;
+	#event-pic img{
+		width: 70px;
+		height: 70px;
+	}
+}
+
+.event-form{
+	float: right;
+	width: 500px;
+	height: 100%;
+}
+
+.user-profile-page{
+	width: 500px;
+	height: 500px;
+	border: 1px solid grey;
+	h1, h3{
+		color: black;
+	}
+}

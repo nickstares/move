@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOVE</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+	
+<% if current_user %>
+<!-- nav bar -->
+<div class="nav-bar">
+	<nav class="top-bar" data-topbar role="navigation">
+	  
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><a href="/">MOVE</a></h1>
+	    </li>
+	     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+	    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	  </ul>
+
+	  <section class="top-bar-section">
+	    <!-- Right Nav Section -->
+	    <ul class="left">
+	    	<li><%= render 'users/search' %></li>
+	    </ul>
+	  </section>
+
+
+	  <section class="top-bar-section">
+	    <!-- Right Nav Section -->
+	    <ul class="right">
+	    	<li><a href="/events/new">+</a></li>
+	    	<li><a href="/">Stream</a></li>
+	      <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+	      <li class="has-dropdown">
+	        <a href="#">Settings</a>
+	        <ul class="dropdown">
+	          <li><a href="#">Account Settings</a></li>
+	          <li><%= link_to  'Logout', destroy_user_session_path, method: 'delete' %></a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	  </section>
+	  
+	</nav>
+</div>
+
+<% end %>
+
+<!-- main content -->
+<div class="content">
+
+<!-- user profile -->
+
+<!-- stream -->
+	<%= yield %>
+
+</div>
+	
+<!-- footer -->
+<footer>
+	<p>Copyright MOVE</p>
+</footer>
+
+
+
+
+</body>
+</html>

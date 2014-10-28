@@ -1,0 +1,5 @@
+/*this is the code to hide the login page on the home page*/
+
+.js-registration-hide {
+  display: none;
+}
