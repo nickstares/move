@@ -17,6 +17,11 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@events = Event.where(user_id: @user.id)
+		# refactor this to use join/include
+		@rsvps = Rsvp.where(:user_id => current_user.id, :rsvp_status => 1)
+
+		@events = @events.sort_by &:event_time
+		@events.reverse!
 	end
 
 	def edit

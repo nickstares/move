@@ -1,22 +1,37 @@
-<div id="profile-stream">
-
-	<% @events.each do |x| %>
-		<div class="event"> 
-		  <div>
-		  	<%= link_to user_path(x.user) do %> 
-		      <img src="<%= x.user.profile_photo %>" />
-		    <% end %>
+<div class="stream">
+	<div class="my-events">
+	<% @events.each do |event| %>		
+		<div class="event" style="background-image: url('<%= event.event_photo %>')"> 
+		  <%= link_to user_path(event.user_id) do %>
+		  <div class="event-user-pic">
+		    <img src="<%= event.user.profile_photo %>" />
 		  </div>
-		  <div>
-		    <h4><%= x.name %></h4>
-		    <h2><%= x.event_time %></h2>
-		  </div>
-		  <div>
-		  	<%= link_to event_path(x.id) do %> 
-		      <img src="<%= x.event_photo %>" />
-		    <% end %>
-		  </div>
-		</div>
+		  <% end %>
+      <%= link_to user_event_path(event.user_id, event.id) do %>
+      <div class="event-name-time">
+    		<h2><%= event.name %></h2>
+    		<h4><%= event.event_time.to_date().strftime("%m/%d") %></h4>
+  		</div>
+  		<% end %>
+  	</div>
 	<% end %>
+	</div>
 
+	<div class="rsvped-events">
+	<% @rsvps.each do |rsvp| %>		
+		<div class="event" style="background-image: url('<%= rsvp.event.event_photo %>')"> 
+		  <%= link_to user_path(rsvp.event.user_id) do %>
+		  <div class="event-user-pic">
+		    <img src="<%= rsvp.event.user.profile_photo %>" />
+		  </div>
+		  <% end %>
+      <%= link_to user_event_path(rsvp.user_id, rsvp.event.id) do %>
+      <div class="event-name-time">
+    		<h2><%= rsvp.event.name %></h2>
+    		<h4><%= rsvp.event.event_time.to_date().strftime("%m/%d") %></h4>
+  		</div>
+  		<% end %>
+  	</div>
+	<% end %>
+	</div>
 </div>

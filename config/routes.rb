@@ -6,14 +6,16 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'search', on: :collection
+    
     resources :follows, only: [:create, :destroy] 
     member do 
       get 'followers', to: 'follows#followers'
       get 'followed', to: 'follows#followed'
     end
+    resources :events
   end
 
-  resources :events
+  resources :rsvps, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

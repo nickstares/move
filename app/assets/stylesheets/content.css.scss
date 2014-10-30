@@ -1,88 +1,157 @@
-h4{
-	color: black;
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -45px;
 }
 
 footer{
-	background-color: grey;
+	background-color: #333333;
 	p{
-		line-height: 70px;
+		line-height: 45px;
+		color: grey;
+		text-align: center;
 	}
 }
 
-#profile{
- 	img {
-	width: 250px;
-	height: 250px;
-	}
-	h5{
-	color: black;
-	}
+footer, .push {
+	height: 45px; /* .push must be the same height as .footer */
 }
 
 .nav-bar {
 	margin-bottom: 2px;
+	.search-box{ 
+	input[type='submit']{
+		display: none;
+	}
+	
 }
+
+.username-jont {
+	display: inline-block;
+	float: right;
+}
+
+.profile-pic-thumbnail {
+		height: 30px;
+		width: 30px;
+		display: inline-block;
+		float: left;
+	}
+
+#logo{
+		height: 30px;
+		width: 40px;
+		margin-left: 12px;
+		margin-right: 20px;
+		margin-top: 2px;
+		margin-bottom: 4px;
+		}
+	}
 
 .content{
 	height: 100%;
-}
+	.stream {
+		width: 660px;
+		height: 100%;
+		display: inline-block;
+		.event {
+			padding: 10px;
+			width: 660px;
+			height: 150px;
+			border-bottom: 2px solid white;
+			.event-user-pic img{
+				border-radius: 50%;
+				width: 70px;
+				height: 70px;
+				display: inline-block;
+				float: left;
+			}
+			.event-name-time{
+				float: right;
+				display: inline-block;
+				h2, h4 {
+					color: white;
+					text-align: right;
+				}
+			}	
+		}
+	}
 
-#profile {
+	.user-profile-page{
+	margin-right: 10px;
+	background-color: white;
+	border-right: 1px #D1D1D1 solid;
+	border-bottom: 1px #D1D1D1 solid;
 	width: 250px;
-	height: 100%;
+	padding: 10px;
 	display: inline-block;
 	float: left;
-	border: 1px solid grey;
+	padding-bottom: 18px;
+	.profile{
+	 	img {
+			width: 250px;
+			height: 250px;
+		}
+		.username h3{
+			color: black;
+		}
+		.bio h5{
+			color: grey;
+		}
+		.website h5 a{
+			color: #40D5E2;
+			font-size: 14px;
+		}
+		.follow-info h6{
+			color: black;
+			a{
+				color: black;
+				font-weight: lighter;
+			}
+			span{
+				color: #40D5E2;
+				margin-right: 10px;
+				font-weight: bold;
+			}
+		}
+		.follow-button div input{
+			border: 0;
+		  background: #D1D1D1;
+		  color: black;
+		  font-family: helvetica;
+		  font-weight: bold; 
+		  padding: 8px 14px;
+		  font-size: 10px;
+		  text-decoration: none;
+		  display: inline-block; /* needed for anchors */
+		  position: relative;
+			box-shadow: 1px 0px grey, 0px 1px grey, 2px 1px grey, 1px 2px grey, 3px 2px grey, 2px 3px grey, 4px 3px grey, 3px 4px grey, 5px 4px grey, 4px 5px grey, 6px 5px grey, 5px 6px grey;
+			&:hover, &:focus,
+		  &.hover, &.focus {
+		    transform: translate(2px, 2px);
+		    box-shadow: 1px 0px grey, 0px 1px grey, 2px 1px grey, 1px 2px grey, 3px 2px grey, 2px 3px grey, 4px 3px grey, 3px 4px grey;
+		  }
+		  &:active,
+		  &.active {
+		   	transform: translate(4px, 4px);
+		    box-shadow: 1px 0px grey, 0px 1px grey,
+		              2px 1px grey, 1px 2px grey;
+		  }
+		}
+		hr{
+			background: #D1D1D1;
+			height: 1px;
+			border: 0;
+		}
+	}
 }
 
-#stream {
-	width: 660px;
-	height: 100%;
-	display: inline-block;
-	border: 2px solid black;
-}
-
-#profile-pic{
-		width: 160px;
-		height:160px;
-		border: 2px solid white;
-		float: left;
-		display: inline-block;
-	}
-
-.post{
-	width: 660px;
-}
-
-.event {
-	display: inline-block;
-	width: 500px;
-	height: 160px;
-	border-bottom: 2px solid white;
-	img{
-		width: 50px;
-		height: 60px;
-		display: inline-block;
-		float: right;
-	}
-	background-color: grey;
-	h2, h4 {
-		color: white;
-		background-color: black;
-		text-align: right;
-	}
-
-}
-
-.event-partial {
-	h1, h3{
-		color: black;
-	}
-	margin-left: 30%;
-	#event-pic img{
-		width: 70px;
-		height: 70px;
-	}
 }
 
 .event-form{
@@ -91,11 +160,15 @@ footer{
 	height: 100%;
 }
 
-.user-profile-page{
-	width: 500px;
-	height: 500px;
-	border: 1px solid grey;
+.event-partial{
+	width: 600px;
+	height: 100%;
+	margin: 0 auto;
 	h1, h3{
 		color: black;
+	}
+	.event-pic{
+		width: 300px;
+		height: 300px;
 	}
 }

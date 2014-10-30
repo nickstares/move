@@ -1,5 +1,9 @@
-<ul>
-  <% @users.each do |x| %>
-  	<li><%= link_to x.username, :action => 'show', :id => x.id  %></li>
-  <% end %>
-</ul>
+<% @users.each do |x| %>
+
+	<div>
+		<h1>
+			<%= link_to x.username, :action => 'show', :id => x.id  %>
+		</h1>
+	</div>
+
+<% end %>

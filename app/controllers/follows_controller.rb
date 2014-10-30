@@ -9,7 +9,7 @@ class FollowsController < ApplicationController
 	end
 
 	def followed
-		@followed = Follow.where(follower: params[:user_id])
+		@followed = User.find(params[:id]).followed_users
 	end
 
 	def create

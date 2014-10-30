@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
+
 		@followed_ids = Follow.where(follower_id: current_user.id).select(:followed_id).map(&:followed_id)
 		
 		@events = Event.where(user_id: @followed_ids).order(:created_at)
@@ -11,7 +12,7 @@ class EventsController < ApplicationController
 			@events.push x
 		end
 
-		@events = @events.sort_by &:created_at
+		@events = @events.sort_by &:event_time
 		@events.reverse!
 	end
 
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(post_params)
+		@event = Event.new(event_params)
 		@event.user_id = current_user.id
 
     if @event.save
@@ -40,14 +41,16 @@ class EventsController < ApplicationController
     end
 	end
 
-	def delete
+	def destroy
 		@event = Event.find(params[:id])
+		@event.destroy
+  	redirect_to :action => :index, status: 303
 	end
 
 
 	private
 
-		def post_params
+		def event_params
 			params.require(:event).permit(:name, :event_photo, :description, :event_time, :age_limit, :link)
 		end
 end

@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'byebug'
 # Gem for foundation css framework
 gem 'foundation-rails'
 

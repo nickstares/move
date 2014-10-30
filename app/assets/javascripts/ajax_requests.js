@@ -1,13 +1,13 @@
 $(document).ready(function(){
 
-	$('#about input[type="text"]').keypress(function(event){
+	$('.bio input[type="text"]').keypress(function(event){
 		if (event.which === 13) {
 			event.preventDefault();
 			var bio = $(this).val();
-			var user_id = $('#about').data('id');
+			var user_id = $('.bio').data('id');
 			$.ajax({
 				type: 'PATCH',
-				url: 'users/'+user_id,
+				url: '/users/'+user_id,
 				dataType: 'json',
 				data: {
 					user: {
@@ -15,20 +15,20 @@ $(document).ready(function(){
 					}			
 				},
 				success: function(){
-					$('#about').html('<h4><small>'+ bio +'</small></h4>');
+					$('.bio').html('<h4>'+ bio +'</h4>');
 				}
 			})
 		}
 	})
 
-	$('#user-link input[type="text"]').keypress(function(event){
+	$('.website input[type="text"]').keypress(function(event){
 		if (event.which === 13) {
 			event.preventDefault();
 			var personal_website = $(this).val();
-			var user_id = $('#user-link').data('id');
+			var user_id = $('.website').data('id');
 			$.ajax({
 				type: 'PATCH',
-				url: 'users/'+user_id,
+				url: '/users/'+user_id,
 				dataType: 'json',
 				data: {
 					user: {
@@ -36,9 +36,24 @@ $(document).ready(function(){
 					}			
 				},
 				success: function(){
-					$('#user-link').html('<h4><small>'+ personal_website +'</small></h4>');
+					$('.website').html('<h4>'+ personal_website +'</h4>');
 				}
 			})
 		};
+	})
+
+	$('.rsvp').click(function(event){
+			event.preventDefault();
+			var event_id = $(this).attr('data-eventid');
+			var rsvp_status = 1;
+			$.ajax({
+				type: 'POST',
+				url: '/rsvps',
+				dataType: 'json',
+				data: {
+					event_id: event_id,
+					rsvp_status: rsvp_status
+				}
+			})
 	})
 });

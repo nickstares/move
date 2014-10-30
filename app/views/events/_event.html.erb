@@ -1,8 +1,12 @@
 <div class="event-partial">
 	<h1><%= @event.name %></h1>
 	<h3><%= @event.description %></h3>
-	<h3><%= @event.event_time %></h3>
+	<h3><%= @event.event_time.to_date().strftime("%m/%d") %></h3>
+	<h3><%= @event.event_time.strftime("%H:%M") %></h3>
 	<h3><%= @event.age_limit %></h3>
 	<h3><%= @event.link %></h3>
-	<div id="event-pic"><img src="<%= @event.event_photo %>"></div>
+	<div class="event-pic"><img src="<%= @event.event_photo %>"></div>
+	
+		<button class="rsvp" data-eventid="<%= @event.id %>">RSVP</button>
+		<%= link_to  'delete', user_event_path, method: 'delete' %>
 </div>

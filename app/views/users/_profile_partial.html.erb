@@ -2,68 +2,83 @@
   
   <% if current_user != @user %>
 
-    <div id="profile">    
-      <div id="profile-pic">
+    <div class="profile"> 
+
+      <div class="profile-pic">
         <img src="<%= @user.profile_photo %>"/>
       </div>
-      <div id="username">
-        <h5><%= @user.username %></h5>
+
+      <div class="username">
+        <h3><%= @user.username %></h3>
       </div>
-      <section class="section"> 
-        <h4><%= @user.bio %></h4>
-        <h4><a href="<%= @user.personal_website %>"><%= @user.personal_website %></a></h4>
-      </section>
+
+      <div class="bio"> 
+        <h5><%= @user.bio %></h5>
+      </div>
+
+      <div class="website">
+        <h5><a href="<%= @user.personal_website %>"><%= @user.personal_website %></a></h5>
+      </div>
+
       <hr>
-      <section class="section">
-        <h4><small><a href="/users/<%= @user.id %>/followed">Following:</a> <%= @user.followed_users.count %> </small></h4>
-        <h4><small><a href="/users/<%= @user.id %>/followers">Followers:</a> <%= @user.followers.count %> </small></h4>
-      </section>  
-      <hr>  
-      <div class="follow-link">
+
+      <div class="follow-info">
+        <h6><a href="/users/<%= @user.id %>/followed">Following: <span><%= @user.followed_users.count %></span> </a> | <a href="/users/<%= @user.id %>/followers">Followers: <span><%= @user.followers.count %></span> </a></h6>
+      </div> 
+
+      <hr> 
+
+      <div class="follow-button">
         <% if current_user.followed_users.include?(@user) %>
-          <%= link_to 'Unfollow', user_follow_path(user_id: @user.id), method: :delete %>
+          <%= button_to 'Unfollow', user_follow_path(user_id: @user.id), method: :delete %>
         <% else %>
-          <%= link_to 'Follow', user_follows_path(user_id: @user.id ), method: :post %> 
+          <%= button_to 'Follow', user_follows_path(user_id: @user.id ), method: :post %> 
         <% end %>
       </div>
+
     </div>
 
   <% else %>
 
-    <div id="profile">    
-      <div id="profile-pic">
+    <div class="profile">  
+
+      <div class="profile-pic">
         <img src="<%= current_user.profile_photo if current_user %>"/>
       </div>
-      <div id="username">
-        <h5><%= current_user.username %></h5>
+
+      <div class="username">
+        <h3><%= current_user.username %></h3>
       </div>
-      <section class="section">
-        <div id="about" data-id="<%= current_user.id %>">
-          <% if current_user.bio %>
-            <h4><%= current_user.bio %></h4>
-          <% else %> 
-            <form>
-              <input type="text" placeholder="Enter bio">
-            </form>
-          <% end %>
-        </div>
-        <div id="user-link" data-id="<%= current_user.id %>">
-          <% if current_user && current_user.personal_website %>
-            <h4><a href="<%= current_user.personal_website %>">
-                <%= current_user.personal_website %></a></h4>
-          <% else %>
-            <form>
-              <input type="text" placeholder="enter website">
-            </form>
-          <% end %>
-        </div>
-      </section>
+
+      <div class="bio" data-id="<%= current_user.id %>">
+        <% if current_user.bio %>
+          <h5><%= current_user.bio %></h5>
+        <% else %> 
+          <form>
+            <input type="text" placeholder="Enter bio">
+          </form>
+        <% end %>
+      </div>
+
+      <div class="website" data-id="<%= current_user.id %>">
+        <% if current_user && current_user.personal_website %>
+          <h5><a href="<%= current_user.personal_website %>">
+              <%= current_user.personal_website %></a></h5>
+        <% else %>
+          <form>
+            <input type="text" placeholder="enter website">
+          </form>
+        <% end %>
+      </div>
+
       <hr>
-      <section class="section">
-        <h4><small><a href="/users/<%= current_user.id %>/followed">Following:</a> <%= current_user.followed_users.count %> </small></h4>
-        <h4><small><a href="/users/<%= current_user.id %>/followers">Followers:</a> <%= current_user.followers.count %> </small></h4>
-      </section>
+
+      <div class="follow-info">
+        <h6><a href="/users/<%= current_user.id %>/followed">Following: <span><%= current_user.followed_users.count %> </span></a> | <a href="/users/<%= current_user.id %>/followers">Followers:<span><%= current_user.followers.count %> </span></a></h6>
+      </div>
+      
       <hr>
+
     </div>
 
   <% end %>
