@@ -18,7 +18,9 @@
 	</div>
 
 	<div class="rsvped-events">
-	<% @rsvps.each do |rsvp| %>		
+	
+	<% @rsvps.each do |rsvp| %>
+		<% if rsvp.event %>
 		<div class="event" style="background-image: url('<%= rsvp.event.event_photo %>')"> 
 		  <%= link_to user_path(rsvp.event.user_id) do %>
 		  <div class="event-user-pic">
@@ -32,6 +34,7 @@
   		</div>
   		<% end %>
   	</div>
+  	<% end %>
 	<% end %>
 	</div>
 </div>

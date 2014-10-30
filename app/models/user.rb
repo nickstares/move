@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts
+  has_many :rsvps
+
+  has_many :events
 
   has_many :follower_relationships, foreign_key: 'follower_id', class_name: 'Follow', dependent: :destroy
   has_many :followed_relationships, foreign_key: 'followed_id', class_name: 'Follow', dependent: :destroy
