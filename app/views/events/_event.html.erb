@@ -6,7 +6,12 @@
 	<h3><%= @event.age_limit %></h3>
 	<h3><%= @event.link %></h3>
 	<div class="event-pic"><img src="<%= @event.event_photo %>"></div>
+        
+        <!-- if the person has rsvp'd show the button. otherwise show text that says the have rsvp -->
+        
+	<button class="rsvp" data-eventid="<%= @event.id %>">RSVP</button>
 	
-		<button class="rsvp" data-eventid="<%= @event.id %>">RSVP</button>
-		<%= link_to  'delete', user_event_path, method: 'delete' %>
+	<% if @event.id == current_user.id %>
+	<%= link_to  'delete', user_event_path, method: 'delete' %>
+        <% end %>
 </div>

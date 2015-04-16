@@ -24,7 +24,6 @@ footer, .push {
 }
 
 .nav-bar {
-	margin-bottom: 2px;
 	.search-box{ 
 	input[type='submit']{
 		display: none;
@@ -56,30 +55,55 @@ footer, .push {
 
 .content{
 	height: 100%;
+	background-color: #dddddd;
 	.stream {
-		width: 660px;
+		background-color: white;
+		margin: 0 auto;
+		width: 992px;
 		height: 100%;
-		display: inline-block;
+		padding: 7px;
 		.event {
+			display: inline-block;
 			padding: 10px;
-			width: 660px;
-			height: 150px;
+			width: 235px;
+			height: 235px;
+			margin: 3px;
 			border-bottom: 2px solid white;
-			.event-user-pic img{
-				border-radius: 50%;
-				width: 70px;
-				height: 70px;
-				display: inline-block;
-				float: left;
+			&:hover {
+				opacity: 0.7;
 			}
-			.event-name-time{
-				float: right;
-				display: inline-block;
-				h2, h4 {
-					color: white;
-					text-align: right;
+			.event-username{
+				float: left;
+				h6{
+					color: #d4d4d4;
+					background-color: rgba(0, 0, 0, .75);
+					padding: 5px;
+					font-size: 14px;
 				}
+			}
+			.event-name{
+				float: left;
+				clear: left;
+				h2{
+					color: white;
+					text-align: left;
+					font-size: 18px;
+					background-color: rgba(0, 0, 0, .75);
+					padding: 5px;
+				}
+				
 			}	
+			.event-time{
+				float: left;
+				clear: left;
+				h4{
+					color: white;
+					text-align: left;
+					font-size: 16px;
+					background-color: rgba(0, 0, 0, .75);
+					padding: 5px;
+				}
+			}
 		}
 	}
 
@@ -170,5 +194,11 @@ footer, .push {
 	.event-pic{
 		width: 300px;
 		height: 300px;
+	}
+}
+
+.login{
+	h2{
+		color: black;
 	}
 }
